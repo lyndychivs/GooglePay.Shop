@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "GooglePay Authorization";
+}
+<div class="text-center">
+    <h1 class="display-4">GooglePay Authorization Demo</h1>
+    <br />
+    <br />
+</div>
+<script src="~/js/logger.js"></script>
+<script src="~/js/GooglePay/shared.js"></script>
+<table id="configuration-table" class="fl-table">
+    <tr><th>Key</th><th>Value</th></tr>
+    <tr>
+        <td>apiVersion:</td>
+        <td>v2.0</td>
+    </tr>
+    <tr>
+        <td>tokenizationSpecification.type:</td>
+        <td>
+            <select id="tokenization-specification-type">
+                <option value="DIRECT">DIRECT</option>
+                <option value="PAYMENT_GATEWAY" selected>PAYMENT_GATEWAY</option>
+            </select>
+        </td>
+    </tr>
+    <tr><td>currencyCode:</td><td id="currency-code">USD</td></tr>
+    <tr>
+        <td>totalPrice:</td>
+        <td><input type="text" id="total-price" value="1.00"></td>
+    </tr>
+</table>
+<br />
+<div class="text-center">
+    <div id="googlepay-button"></div>
+    <label id="check-console">Check Console logs if unexpected behaviour.</label>
+</div>
+<br />
+<script src="~/js/GooglePay/authorization.js"></script>
+<script async
+        src="https://pay.google.com/gp/p/js/pay.js"
+        onload="onGooglePayLoaded()">
+</script>
+<br />
+<br />
+<h3>Request:</h3>
+<div id="request-logs"></div>
+<br />
+<h3>Response:</h3>
+<div id="response-logs"></div>

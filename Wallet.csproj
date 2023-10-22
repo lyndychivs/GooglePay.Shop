@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject>Wallet.Program</StartupObject>
+    <ApplicationIcon>Resources\wallet.ico</ApplicationIcon>
+    <Title>Wallet</Title>
+    <Description>Web API for Testing Wallet Transactions.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>wallet.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>wallet,googlepay,applepay,testing,web,api</PackageTags>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <Company>https://github.com/lyndychivs</Company>
+    <Authors>lyndychivs</Authors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Resources\wallet.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\wallet.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

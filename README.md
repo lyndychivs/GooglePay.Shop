@@ -1,2 +1,2 @@
 # Wallet
-Web API for Testing GooglePay
+Web API for Testing Wallet transactions like GooglePay or ApplePay.
