@@ -19,25 +19,30 @@ const tokenizationSpecificationDirect = {
     }
 };
 
-const baseCardPaymentMethod = {
+var baseCardPaymentMethod = {
     type: 'CARD',
     parameters: {
-        allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+        allowedAuthMethods: getllowedAuthMethods(),
         allowedCardNetworks: ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"]
     }
 };
 
-const cardPaymentMethodGateway = Object.assign(
+function getCardPaymentMethod() {
+    baseCardPaymentMethod.parameters.allowedAuthMethods = getllowedAuthMethods();
+    return baseCardPaymentMethod;
+}
+
+var cardPaymentMethodGateway = Object.assign(
     {},
-    baseCardPaymentMethod,
+    getCardPaymentMethod(),
     {
         tokenizationSpecification: tokenizationSpecificationGateway
     }
 );
 
-const cardPaymentMethodDirect = Object.assign(
+var cardPaymentMethodDirect = Object.assign(
     {},
-    baseCardPaymentMethod,
+    getCardPaymentMethod(),
     {
         tokenizationSpecification: tokenizationSpecificationDirect
     }
@@ -48,7 +53,7 @@ function getGoogleIsReadyToPayRequest() {
         {},
         baseRequest,
         {
-            allowedPaymentMethods: [baseCardPaymentMethod]
+            allowedPaymentMethods: [getCardPaymentMethod()]
         }
     );
 }
@@ -61,13 +66,25 @@ function getAllowedPaymentMethods() {
     return cardPaymentMethodGateway;
 }
 
-function addGooglePayButton() {
-    const paymentsClient = getGooglePaymentsClient();
-    const button = paymentsClient.createButton({ onClick: onGooglePaymentButtonClicked });
-    document.getElementById('googlepay-button').appendChild(button);
+function getllowedAuthMethods() {
+    var authMethods = document.getElementById('allowedAuthMethods').value;
+    if (authMethods == 'CRYPTO') {
+        return ["CRYPTOGRAM_3DS"];
+    }
+    if (authMethods == 'PAN') {
+        return ["PAN_ONLY"];
+    }
+    return ["PAN_ONLY", "CRYPTOGRAM_3DS"];
 }
 
-function onGooglePayLoaded() {
+function addGooglePayButton() {
+    const paymentsClient = getGooglePaymentsClient();
+    var button = paymentsClient.createButton({ onClick: onGooglePaymentButtonClicked });
+    var googleButtonDiv = getAndClearGooglePayDiv();
+    googleButtonDiv.appendChild(button);
+}
+
+function getPaymentClientWithConfiguration() {
     const paymentsClient = getGooglePaymentsClient();
     paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
         .then(function (response) {
@@ -75,12 +92,14 @@ function onGooglePayLoaded() {
                 addGooglePayButton();
             }
             else {
-                logToDiv('Failed to call addGooglePayButton() isReadyToPay response was false.', 'response-logs');
+                logToDiv('Failed to call addGooglePayButton() paymentsClient.isReadyToPay response was false. (Perhaps the getGoogleIsReadyToPayRequest() configuration is now invalid.)', 'response-logs');
+                getAndClearGooglePayDiv();
             }
         })
         .catch(function (err) {
             console.error(err);
             logToDiv(err, 'response-logs');
+            getAndClearGooglePayDiv();
         });
 }
 
@@ -91,4 +110,14 @@ function getGoogleTransactionInfo() {
         totalPriceStatus: "FINAL",
         totalPrice: document.getElementById('total-price').value
     };
+}
+
+function getGooglePayDiv() {
+    return document.getElementById('googlepay-button');
+}
+
+function getAndClearGooglePayDiv() {
+    var googlePayDiv = getGooglePayDiv();
+    googlePayDiv.innerHTML = '';
+    return googlePayDiv;
 }

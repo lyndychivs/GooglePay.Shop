@@ -7,12 +7,21 @@
     <br />
 </div>
 <script src="~/js/logger.js"></script>
-<script src="~/js/GooglePay/shared.js"></script>
 <table id="configuration-table" class="fl-table">
     <tr><th>Key</th><th>Value</th></tr>
     <tr>
         <td>apiVersion:</td>
         <td>v2.0</td>
+    </tr>
+    <tr>
+        <td>allowedAuthMethods:</td>
+        <td>
+            <select id="allowedAuthMethods" class="user-input-box" onchange="getPaymentClientWithConfiguration()">
+                <option value="CRYPTO">CRYPTOGRAM_3DS</option>
+                <option value="PAN">PAN_ONLY</option>
+                <option value="BOTH" selected>PAN_ONLY & CRYPTOGRAM_3DS</option>
+            </select>
+        </td>
     </tr>
     <tr>
         <td>tokenizationSpecification.type:</td>
@@ -35,13 +44,14 @@
     <label id="check-console">Check Console logs if unexpected behaviour.</label>
 </div>
 <br />
+<script src="~/js/GooglePay/shared.js"></script>
 <script src="~/js/GooglePay/authorization.js"></script>
 <script async
-        src="https://pay.google.com/gp/p/js/pay.js"
-        onload="onGooglePayLoaded()">
+    src="https://pay.google.com/gp/p/js/pay.js"
+    onload="getPaymentClientWithConfiguration()">
 </script>
-<br />
-<br />
+<br/>
+<br/>
 <h3>Request:</h3>
 <div id="request-logs"></div>
 <br />
