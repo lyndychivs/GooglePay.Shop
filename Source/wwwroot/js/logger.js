@@ -5,3 +5,13 @@
     logElement.innerHTML = logToString;
     container.appendChild(logElement);
 }
+
+function clearLogs() {
+    var requestDiv = document.getElementById('request-logs');
+    requestDiv.innerHTML = '';
+
+    var responseDiv = document.getElementById('response-logs');
+    responseDiv.innerHTML = '';
+
+    console.clear();
+}
