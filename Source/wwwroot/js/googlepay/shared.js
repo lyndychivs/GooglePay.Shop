@@ -121,3 +121,8 @@ function getAndClearGooglePayDiv() {
     googlePayDiv.innerHTML = '';
     return googlePayDiv;
 }
+
+function copyTokenToClipboard() {
+    var copyText = document.getElementById('token-b64-log');
+    navigator.clipboard.writeText(copyText.innerText);
+}
