@@ -1,17 +1,23 @@
-﻿function logToDiv(log, divId) {
-    logToString = JSON.stringify(log);
-    var container = document.getElementById(divId);
-    var logElement = document.createElement('pre');
-    logElement.innerHTML = logToString;
-    container.appendChild(logElement);
+﻿function updateElementInnerHtml(text, id) {
+    var container = document.getElementById(id);
+    container.innerHTML = text;
+}
+
+function updateElementInnerHtmlWithJson(jsonAsObject, id) {
+    jsonAsString = JSON.stringify(jsonAsObject, null, 4);
+    var container = document.getElementById(id);
+    container.innerHTML = jsonAsString;
 }
 
 function clearLogs() {
-    var requestDiv = document.getElementById('request-logs');
+    var requestDiv = document.getElementById('request-log');
     requestDiv.innerHTML = '';
 
-    var responseDiv = document.getElementById('response-logs');
+    var responseDiv = document.getElementById('response-log');
     responseDiv.innerHTML = '';
+
+    var responseTokenB64Div = document.getElementById('token-b64-log');
+    responseTokenB64Div.innerHTML = '';
 
     console.clear();
 }

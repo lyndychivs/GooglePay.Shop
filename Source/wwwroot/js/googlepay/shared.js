@@ -92,13 +92,13 @@ function getPaymentClientWithConfiguration() {
                 addGooglePayButton();
             }
             else {
-                logToDiv('Failed to call addGooglePayButton() paymentsClient.isReadyToPay response was false. (Perhaps the getGoogleIsReadyToPayRequest() configuration is now invalid.)', 'response-logs');
+                updateElementInnerHtml('Failed to call addGooglePayButton() paymentsClient.isReadyToPay response was false. (Perhaps the getGoogleIsReadyToPayRequest() configuration is now invalid.)', 'response-log');
                 getAndClearGooglePayDiv();
             }
         })
         .catch(function (err) {
             console.error(err);
-            logToDiv(err, 'response-logs');
+            updateElementInnerHtml(err, 'response-log');
             getAndClearGooglePayDiv();
         });
 }

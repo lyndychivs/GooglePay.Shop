@@ -22,18 +22,19 @@ function onGooglePaymentButtonClicked() {
     const paymentDataRequest = getGooglePaymentDataRequest();
     paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
     const paymentsClient = getGooglePaymentsClient();
-    logToDiv(paymentDataRequest, 'request-logs');
+    updateElementInnerHtmlWithJson(paymentDataRequest, 'request-log');
     paymentsClient.loadPaymentData(paymentDataRequest)
         .then(function (paymentData) {
             processPayment(paymentData);
         })
         .catch(function (err) {
             console.error(err);
-            logToDiv(err, 'response-logs');
+            updateElementInnerHtml(err, 'response-log');
         });
 }
 
 function processPayment(paymentData) {
     console.log(paymentData);
-    logToDiv(paymentData, 'response-logs');
+    updateElementInnerHtmlWithJson(paymentData, 'response-log');
+    updateElementInnerHtml(btoa(paymentData.paymentMethodData.tokenizationData.token), 'token-b64-log');
 }
