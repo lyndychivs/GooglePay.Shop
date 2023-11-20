@@ -3,8 +3,8 @@
 }
 <div class="text-center">
     <h1 class="display-4">GooglePay Sale</h1>
-    <br />
-    <br />
+    <br/>
+    <br/>
 </div>
 <script src="~/js/logger.js"></script>
 <table id="configuration-table" class="fl-table">
@@ -26,25 +26,49 @@
     <tr>
         <td>tokenizationSpecification.type:</td>
         <td>
-            <select id="tokenization-specification-type" class="user-input-box">
+            <select id="tokenization-specification-type" class="user-input-box" onchange="renderAllowedTokenizationSpecificationParameters()">
                 <option value="DIRECT">DIRECT</option>
                 <option value="PAYMENT_GATEWAY" selected>PAYMENT_GATEWAY</option>
             </select>
         </td>
     </tr>
-    <tr><td>currencyCode:</td><td id="currency-code">USD</td></tr>
+    <tr>
+        <td>tokenizationSpecification.parameters.gateway:</td>
+        <td><input type="text" id="tokenization-specification-parameters-gateway" value="example" class="user-input-box" onchange="updatePaymentGatewayGatewayValue()"></td>
+    </tr>
+    <tr>
+        <td>tokenizationSpecification.parameters.gatewayMerchantId:</td>
+        <td><input type="text" id="tokenization-specification-parameters-gateway-merchant-id" value="exampleGatewayMerchantId" class="user-input-box" onchange="updatePaymentGatewayMerchantIdValue()"></td>
+    </tr>
+    <tr>
+        <td>tokenizationSpecification.parameters.protocolVersion:</td>
+        <td>
+            <select id="tokenization-specification-parameters-protocol-version" class="user-input-box" onchange="updateDirectParametersProtocolVersionValue()">
+                <option value="ECv1">ECv1</option>
+                <option value="ECv2" selected>ECv2</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>tokenizationSpecification.parameters.publicKey:</td>
+        <td><input type="text" id="tokenization-specification-parameters-public-key" value="BOdoXP+9Aq473SnGwg3JU1aiNpsd9vH2ognq4PtDtlLGa3Kj8TPf+jaQNPyDSkh3JUhiS0KyrrlWhAgNZKHYF2Y=" class="user-input-box" onchange="updateDirectParametersPublicKeyValue()"></td>
+    </tr>
+    <tr>
+        <td>currencyCode:</td>
+        <td id="currency-code">USD</td>
+    </tr>
     <tr>
         <td>totalPrice:</td>
         <td><input type="text" id="total-price" value="1.00" class="user-input-box"></td>
     </tr>
 </table>
-<br />
+<br/>
 <div class="text-center">
     <div id="googlepay-button"></div>
     <label id="check-console">Check Console logs if unexpected behaviour.</label>
 </div>
-<br />
-<script src="~/js/GooglePay/shared.js"></script>
+<br/>
+<script src="~/js/GooglePay/shared.js" onload="renderAllowedTokenizationSpecificationParameters()"></script>
 <script src="~/js/GooglePay/sale.js"></script>
 <script async
     src="https://pay.google.com/gp/p/js/pay.js"

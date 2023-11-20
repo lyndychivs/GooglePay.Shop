@@ -3,19 +3,19 @@
     apiVersionMinor: 0
 };
 
-const tokenizationSpecificationGateway = {
+var tokenizationSpecificationGateway = {
     type: 'PAYMENT_GATEWAY',
     parameters: {
-        'gateway': 'example',
-        'gatewayMerchantId': 'exampleGatewayMerchantId'
+        'gateway': getElementValue('tokenization-specification-parameters-gateway'),
+        'gatewayMerchantId': getElementValue('tokenization-specification-parameters-gateway-merchant-id')
     }
 };
 
-const tokenizationSpecificationDirect = {
+var tokenizationSpecificationDirect = {
     type: 'DIRECT',
     parameters: {
-        protocolVersion: 'ECv2',
-        publicKey: 'BOdoXP+9Aq473SnGwg3JU1aiNpsd9vH2ognq4PtDtlLGa3Kj8TPf+jaQNPyDSkh3JUhiS0KyrrlWhAgNZKHYF2Y='
+        protocolVersion: getElementValue('tokenization-specification-parameters-protocol-version'),
+        publicKey: getElementValue('tokenization-specification-parameters-public-key')
     }
 };
 
@@ -125,4 +125,49 @@ function getAndClearGooglePayDiv() {
 function copyTokenToClipboard() {
     var copyText = document.getElementById('token-b64-log');
     navigator.clipboard.writeText(copyText.innerText);
+}
+
+function renderAllowedTokenizationSpecificationParameters() {
+    var specificationType = document.getElementById('tokenization-specification-type');
+
+    if (specificationType.value == 'DIRECT') {
+        setElementDisabledValue('tokenization-specification-parameters-gateway', true);
+        setElementDisabledValue('tokenization-specification-parameters-gateway-merchant-id', true);
+        setElementDisabledValue('tokenization-specification-parameters-protocol-version', false);
+        setElementDisabledValue('tokenization-specification-parameters-public-key', false);
+        return;
+    }
+
+    setElementDisabledValue('tokenization-specification-parameters-gateway', false);
+    setElementDisabledValue('tokenization-specification-parameters-gateway-merchant-id', false);
+    setElementDisabledValue('tokenization-specification-parameters-protocol-version', true);
+    setElementDisabledValue('tokenization-specification-parameters-public-key', true);
+}
+
+function setElementDisabledValue(id, value) {
+    document.getElementById(id).disabled = value;
+}
+
+function getElementValue(id) {
+    return document.getElementById(id).value;
+}
+
+function updatePaymentGatewayGatewayValue() {
+    var value = document.getElementById('tokenization-specification-parameters-gateway').value;
+    tokenizationSpecificationGateway.parameters.gateway = value;
+}
+
+function updatePaymentGatewayMerchantIdValue() {
+    var value = document.getElementById('tokenization-specification-parameters-gateway-merchant-id').value;
+    tokenizationSpecificationGateway.parameters.gatewayMerchantId = value;
+}
+
+function updateDirectParametersProtocolVersionValue() {
+    var value = document.getElementById('tokenization-specification-parameters-protocol-version').value;
+    tokenizationSpecificationDirect.parameters.protocolVersion = value;
+}
+
+function updateDirectParametersPublicKeyValue() {
+    var value = document.getElementById('tokenization-specification-parameters-public-key').value;
+    tokenizationSpecificationDirect.parameters.publicKey = value;
 }
