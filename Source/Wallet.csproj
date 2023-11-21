@@ -36,6 +36,7 @@
     <Content Include="Resources\wallet.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="GooglePay-CryptoUtils" Version="1.0.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

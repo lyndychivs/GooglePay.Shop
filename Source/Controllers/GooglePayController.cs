@@ -3,19 +3,11 @@
     using System.Diagnostics;
 
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     using Wallet.Models;
 
     public class GooglePayController : Controller
     {
-        private readonly ILogger<GooglePayController> _logger;
-
-        public GooglePayController(ILogger<GooglePayController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Sale()
         {
             return View();
