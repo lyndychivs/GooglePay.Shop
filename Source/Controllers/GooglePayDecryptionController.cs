@@ -5,25 +5,24 @@
     using GooglePay.PaymentDataCryptography;
 
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     using Wallet.Models;
 
     [ApiController]
-    [Route("googlepay")]
-    public class GooglePayApiController : ControllerBase
+    public class GooglePayDecryptionController : ControllerBase
     {
         private readonly GoogleKeyProvider _googleKeyProvider;
 
         private readonly PaymentMethodTokenRecipient _paymentMethodTokenRecipient;
 
-        public GooglePayApiController()
+        public GooglePayDecryptionController()
         {
             _googleKeyProvider = new GoogleKeyProvider(true);
             _paymentMethodTokenRecipient = new PaymentMethodTokenRecipient("merchant:12345678901234567890", _googleKeyProvider);
         }
 
         [HttpPost]
+        [Route("GooglePay/Decrypt")]
         public IActionResult Post([FromBody] GooglePayDecryptionRequest googlePayDecryptionRequest)
         {
             return TryDecrypt(googlePayDecryptionRequest);
@@ -34,12 +33,20 @@
             try
             {
                 _paymentMethodTokenRecipient.AddPrivateKey(googlePayDecryptionRequest.PrivateKey);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"{nameof(GooglePayDecryptionRequest)}.{nameof(googlePayDecryptionRequest.PrivateKey)}\n{ex.Message}");
+            }
+
+            try
+            {
                 string decryptedData = _paymentMethodTokenRecipient.Unseal(googlePayDecryptionRequest.EncryptedToken);
                 return Ok(new GooglePayDecryptionResponse() { DecryptedData = decryptedData });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest($"{nameof(GooglePayDecryptionRequest)}.{nameof(googlePayDecryptionRequest.EncryptedToken)}\n{ex.Message}");
             }
         }
     }
