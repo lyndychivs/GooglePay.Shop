@@ -1,5 +1,7 @@
 namespace Wallet
 {
+    using System;
+    using System.IO;
     using System.Reflection;
 
     using Microsoft.AspNetCore.Builder;
@@ -21,6 +23,9 @@ namespace Wallet
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GooglePayDecryption", Version = "v1" });
                 c.ExampleFilters();
                 c.OperationFilter<AddResponseHeadersFilter>();
+
+                var filePath = Path.Combine(AppContext.BaseDirectory, $"{nameof(Wallet)}.xml");
+                c.IncludeXmlComments(filePath);
             });
             builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 

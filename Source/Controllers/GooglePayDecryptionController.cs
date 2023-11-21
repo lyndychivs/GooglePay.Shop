@@ -26,6 +26,11 @@
             _paymentMethodTokenRecipient = new PaymentMethodTokenRecipient("merchant:12345678901234567890", _googleKeyProvider);
         }
 
+        /// <summary>
+        /// Decrypts the GooglePay (ECC) Encrypted Token and returns a Decrypted value of the Transaction Data.
+        /// </summary>
+        /// <param name="googlePayDecryptionRequest">The GooglePayDecryptionRequest for Decryption.</param>
+        /// <returns>A GooglePayDecryptionResponse.</returns>
         [HttpPost]
         [Route("GooglePay/Decrypt")]
         [SwaggerRequestExample(typeof(GooglePayDecryptionRequest), typeof(GooglePayDecryptionRequestExample))]
