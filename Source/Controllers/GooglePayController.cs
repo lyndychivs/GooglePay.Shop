@@ -6,6 +6,7 @@
 
     using Wallet.Models;
 
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class GooglePayController : Controller
     {
         [Route("")]

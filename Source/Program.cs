@@ -1,7 +1,12 @@
 namespace Wallet
 {
+    using System.Reflection;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.OpenApi.Models;
+
+    using Swashbuckle.AspNetCore.Filters;
 
     public class Program
     {
@@ -9,14 +14,22 @@ namespace Wallet
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
+            builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GooglePayDecryption", Version = "v1" });
+                c.ExampleFilters();
+                c.OperationFilter<AddResponseHeadersFilter>();
+            });
+            builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 
             var app = builder.Build();
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.MapControllerRoute(

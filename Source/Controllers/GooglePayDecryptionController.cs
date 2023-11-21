@@ -4,9 +4,14 @@
 
     using GooglePay.PaymentDataCryptography;
 
+    using Microsoft.AspNetCore.Http.HttpResults;
     using Microsoft.AspNetCore.Mvc;
 
+    using Swashbuckle.AspNetCore.Annotations;
+    using Swashbuckle.AspNetCore.Filters;
+
     using Wallet.Models;
+    using Wallet.Models.SwaggerExamples;
 
     [ApiController]
     public class GooglePayDecryptionController : ControllerBase
@@ -23,6 +28,10 @@
 
         [HttpPost]
         [Route("GooglePay/Decrypt")]
+        [SwaggerRequestExample(typeof(GooglePayDecryptionRequest), typeof(GooglePayDecryptionRequestExample))]
+        [SwaggerResponseExample(200, typeof(GooglePayDecryptionResponseExample))]
+        [SwaggerResponse(200, "A valid GooglePayDecrpytionRequest will return a GooglePayDecryptionResponse with the Google Token Decrypted.", typeof(GooglePayDecryptionResponse))]
+        [SwaggerResponse(400, "An invalid or missing input parameter will result in a Bad Request Response.", typeof(BadRequest))]
         public IActionResult Post([FromBody] GooglePayDecryptionRequest googlePayDecryptionRequest)
         {
             return TryDecrypt(googlePayDecryptionRequest);
