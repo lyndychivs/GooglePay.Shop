@@ -123,6 +123,11 @@ function getAndClearGooglePayDiv() {
 }
 
 function copyTokenToClipboard() {
+    var copyText = document.getElementById('token-log');
+    navigator.clipboard.writeText(copyText.innerText);
+}
+
+function copyBase64TokenToClipboard() {
     var copyText = document.getElementById('token-b64-log');
     navigator.clipboard.writeText(copyText.innerText);
 }

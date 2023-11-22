@@ -36,5 +36,6 @@ function onGooglePaymentButtonClicked() {
 function processPayment(paymentData) {
     console.log(paymentData);
     updateElementInnerHtmlWithJson(paymentData, 'response-log');
+    updateElementInnerHtml(paymentData.paymentMethodData.tokenizationData.token, 'token-log');
     updateElementInnerHtml(btoa(paymentData.paymentMethodData.tokenizationData.token), 'token-b64-log');
 }

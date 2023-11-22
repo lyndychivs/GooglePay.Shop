@@ -16,6 +16,9 @@ function clearLogs() {
     var responseDiv = document.getElementById('response-log');
     responseDiv.innerHTML = '';
 
+    var responseTokenDiv = document.getElementById('token-log');
+    responseTokenDiv.innerHTML = '';
+
     var responseTokenB64Div = document.getElementById('token-b64-log');
     responseTokenB64Div.innerHTML = '';
 
