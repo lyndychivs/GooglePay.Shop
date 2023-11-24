@@ -1,0 +1,17 @@
+name: .NET Restore & Build
+on:
+  push:
+    branches: [ "master" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: dotnet restore
+      run: dotnet restore
+    - name: dotnet build
+      run: dotnet build --no-restore --configuration Release
