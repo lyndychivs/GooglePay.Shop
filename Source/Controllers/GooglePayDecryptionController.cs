@@ -29,8 +29,8 @@
         /// <summary>
         /// Decrypts the GooglePay (ECC) Encrypted Token and returns a Decrypted value of the Transaction Data.
         /// </summary>
-        /// <param name="googlePayDecryptionRequest">The GooglePayDecryptionRequest for Decryption.</param>
-        /// <returns>A GooglePayDecryptionResponse.</returns>
+        /// <param name="googlePayDecryptionRequest">The <see cref="GooglePayDecryptionRequest"/> for Decryption.</param>
+        /// <returns>A <see cref="GooglePayDecryptionResponse"/>.</returns>
         [HttpPost]
         [Route("GooglePay/Decrypt")]
         [SwaggerRequestExample(typeof(GooglePayDecryptionRequest), typeof(GooglePayDecryptionRequestExample))]
