@@ -24,6 +24,13 @@
             return View();
         }
 
+        [Route("GooglePay/Decryption")]
+        [Route("GooglePay/Decryption/{id?}")]
+        public IActionResult Decryption()
+        {
+            return View();
+        }
+
         [Route("{id?}")]
         [Route("{id?}/{value?}")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
