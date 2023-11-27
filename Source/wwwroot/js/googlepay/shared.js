@@ -59,7 +59,7 @@ function getGoogleIsReadyToPayRequest() {
 }
 
 function getAllowedPaymentMethods() {
-    var tokenType = document.getElementById('tokenization-specification-type').value;
+    var tokenType = getElementValue('tokenization-specification-type');
     if (tokenType == 'DIRECT') {
         return cardPaymentMethodDirect;
     }
@@ -67,7 +67,7 @@ function getAllowedPaymentMethods() {
 }
 
 function getllowedAuthMethods() {
-    var authMethods = document.getElementById('allowedAuthMethods').value;
+    var authMethods = getElementValue('allowedAuthMethods');
     if (authMethods == 'CRYPTO') {
         return ["CRYPTOGRAM_3DS"];
     }
@@ -108,7 +108,7 @@ function getGoogleTransactionInfo() {
         countryCode: 'US',
         currencyCode: "USD",
         totalPriceStatus: "FINAL",
-        totalPrice: document.getElementById('total-price').value
+        totalPrice: getElementValue('total-price')
     };
 }
 
@@ -133,9 +133,9 @@ function copyBase64TokenToClipboard() {
 }
 
 function renderAllowedTokenizationSpecificationParameters() {
-    var specificationType = document.getElementById('tokenization-specification-type');
+    var specificationType = getElementValue('tokenization-specification-type');
 
-    if (specificationType.value == 'DIRECT') {
+    if (specificationType == 'DIRECT') {
         setElementDisabledValue('tokenization-specification-parameters-gateway', true);
         setElementDisabledValue('tokenization-specification-parameters-gateway-merchant-id', true);
         setElementDisabledValue('tokenization-specification-parameters-protocol-version', false);
@@ -158,21 +158,21 @@ function getElementValue(id) {
 }
 
 function updatePaymentGatewayGatewayValue() {
-    var value = document.getElementById('tokenization-specification-parameters-gateway').value;
+    var value = getElementValue('tokenization-specification-parameters-gateway');
     tokenizationSpecificationGateway.parameters.gateway = value;
 }
 
 function updatePaymentGatewayMerchantIdValue() {
-    var value = document.getElementById('tokenization-specification-parameters-gateway-merchant-id').value;
+    var value = getElementValue('tokenization-specification-parameters-gateway-merchant-id');
     tokenizationSpecificationGateway.parameters.gatewayMerchantId = value;
 }
 
 function updateDirectParametersProtocolVersionValue() {
-    var value = document.getElementById('tokenization-specification-parameters-protocol-version').value;
+    var value = getElementValue('tokenization-specification-parameters-protocol-version');
     tokenizationSpecificationDirect.parameters.protocolVersion = value;
 }
 
 function updateDirectParametersPublicKeyValue() {
-    var value = document.getElementById('tokenization-specification-parameters-public-key').value;
+    var value = getElementValue('tokenization-specification-parameters-public-key');
     tokenizationSpecificationDirect.parameters.publicKey = value;
 }
