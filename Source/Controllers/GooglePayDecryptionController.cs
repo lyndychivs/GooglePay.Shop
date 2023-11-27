@@ -50,7 +50,7 @@
             }
             catch (Exception ex)
             {
-                return BadRequest($"{nameof(GooglePayDecryptionRequest)}.{nameof(googlePayDecryptionRequest.PrivateKey)}\n{ex.Message}");
+                return BadRequest($"{nameof(GooglePayDecryptionRequest)}.{nameof(googlePayDecryptionRequest.PrivateKey)} {ex.Message}");
             }
 
             try
@@ -60,7 +60,7 @@
             }
             catch (Exception ex)
             {
-                return BadRequest($"{nameof(GooglePayDecryptionRequest)}.{nameof(googlePayDecryptionRequest.EncryptedToken)}\n{ex.Message}");
+                return BadRequest($"{nameof(GooglePayDecryptionRequest)}.{nameof(googlePayDecryptionRequest.EncryptedToken)} {ex.Message}");
             }
         }
     }

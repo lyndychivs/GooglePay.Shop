@@ -6,3 +6,18 @@
     <br/>
     <br/>
 </div>
+<script src="~/js/GooglePay/decryption.js"></script>
+<script src="~/js/logger.js"></script>
+<h3>Private Key (Base64 Encoded):</h3>
+<input class="user-input-box" type="text" id="private-key" value="MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgYdlZJyI+jyPgcFXrqsoBMyqc8PQYEYwXTi1fyrlmv4ehRANCAAT1omR2cdQ0PNSQ1EY28FA8uzAmw280FZglKmGqGK6lJ8AEXSg/CQTZhQ1W7B3Bf3Q9t6FEA5e0zoHXfzqvcELs">
+<br
+<br/>
+<h3>EncryptedToken</h3>
+<input class="user-input-box" type="text" id="encrypted-token" value="">
+<br/>
+<br/>
+<button type="button" onclick="submitForDecryption()">Decrypt</button>
+<br/>
+<br/>
+<h3>Response:</h3>
+<pre><code id="response"></code></pre>
