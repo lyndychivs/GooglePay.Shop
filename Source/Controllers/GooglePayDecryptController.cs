@@ -14,13 +14,13 @@
     using Wallet.Models.SwaggerExamples;
 
     [ApiController]
-    public class GooglePayDecryptionController : ControllerBase
+    public class GooglePayDecryptController : ControllerBase
     {
         private readonly GoogleKeyProvider _googleKeyProvider;
 
         private readonly PaymentMethodTokenRecipient _paymentMethodTokenRecipient;
 
-        public GooglePayDecryptionController()
+        public GooglePayDecryptController()
         {
             _googleKeyProvider = new GoogleKeyProvider(true);
             _paymentMethodTokenRecipient = new PaymentMethodTokenRecipient("merchant:12345678901234567890", _googleKeyProvider);

@@ -20,7 +20,7 @@ namespace Wallet
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GooglePayDecryption", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GooglePay Decryption", Version = "v1" });
                 c.ExampleFilters();
                 c.OperationFilter<AddResponseHeadersFilter>();
 

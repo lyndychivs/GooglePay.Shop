@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>Wallet.Tests</Title>
+    <Authors>lyndychivs</Authors>
+    <Company>https://github.com/lyndychivs</Company>
+    <PackageProjectUrl>https://github.com/lyndychivs/Wallet</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/lyndychivs/Wallet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <WarningLevel>9999</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\..\StyleCop.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1701;1702;1573;1591;1712</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>9999</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\..\StyleCop.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1701;1702;1573;1591;1712</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NUnit" Version="4.0.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.15.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="119.0.6045.10500" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Source\Wallet.csproj" />
+    <ProjectReference Include="..\Wallet.Pages\Wallet.Pages.csproj" />
+  </ItemGroup>
+</Project>
