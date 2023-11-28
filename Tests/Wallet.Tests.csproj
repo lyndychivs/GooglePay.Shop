@@ -21,13 +21,13 @@
     <WarningLevel>9999</WarningLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <NoWarn>1701;1702;1573;1591;1712</NoWarn>
+    <NoWarn>1701;1702;1573;1591;1712;1859</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningLevel>9999</WarningLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <NoWarn>1701;1702;1573;1591;1712</NoWarn>
+    <NoWarn>1701;1702;1573;1591;1712;1859</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\README.md">
@@ -49,6 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Source\Wallet.csproj" />
-    <ProjectReference Include="..\Wallet.Pages\Wallet.Pages.csproj" />
+    <ProjectReference Include="..\Pages\Wallet.Pages.csproj" />
   </ItemGroup>
 </Project>

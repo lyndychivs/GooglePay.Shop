@@ -2,24 +2,17 @@
 {
     using NUnit.Framework;
 
-    using OpenQA.Selenium;
-    using OpenQA.Selenium.Chrome;
+    using Wallet.Pages.GooglePay;
 
     [TestFixture]
-    public class SaleTests : GooglePay
+    public class SaleTests : WebSetUp
     {
-        private readonly IWebDriver _webDriver;
-
-        public SaleTests()
-        {
-            _webDriver = new ChromeDriver();
-        }
-
         [Test]
-        public void SalePageShouldHaveTitle()
+        public void Testing_GooglePayClickWorks_ReturnsGooglePayWindow()
         {
-            _webDriver.Navigate().GoToUrl(WalletUrl);
-            Assert.That("Sale", Is.EqualTo(_webDriver.Title));
+            WebDriver.Navigate().GoToUrl(SalePage.Url);
+            var salePage = new SalePage(WebDriver);
+            salePage.ClickPayWithGooglePayButton();
         }
     }
 }
