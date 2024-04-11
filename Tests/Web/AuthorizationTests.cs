@@ -3,7 +3,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class AuthorizationTests
+    public class AuthorizationTests : WebSetUp
     {
     }
 }

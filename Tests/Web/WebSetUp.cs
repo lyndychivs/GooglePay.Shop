@@ -5,22 +5,26 @@
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
 
+    [Parallelizable(ParallelScope.All)]
+    [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
     public abstract class WebSetUp
     {
-        private readonly IWebDriver _webDriver;
+        private IWebDriver _webDriver;
 
-        protected WebSetUp()
+        protected IWebDriver WebDriver => _webDriver;
+
+        [SetUp]
+        protected void SetUp()
         {
             _webDriver = new ChromeDriver();
         }
 
-        protected IWebDriver WebDriver => _webDriver;
-
         [TearDown]
-        protected void TearDownWebDriver()
+        protected void TearDown()
         {
             _webDriver.Close();
             _webDriver.Quit();
+            _webDriver.Dispose();
         }
     }
 }

@@ -3,7 +3,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class DecryptionTests
+    public class DecryptionTests : WebSetUp
     {
     }
 }
