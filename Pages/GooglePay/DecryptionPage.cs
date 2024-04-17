@@ -7,9 +7,9 @@
         public static readonly string Title = "Wallet | GooglePay Decryption";
         public static readonly string Url = $"{Endpoint}Decryption";
 
-        private By _privateKeyTextBox = By.Id("privateKey");
-        private By _encryptedTokenTextBox = By.Id("encryptedToken");
-        private By _responseTextBox = By.Id("response");
+        private readonly By _privateKeyTextBox = By.Id("privateKey");
+        private readonly By _encryptedTokenTextBox = By.Id("encryptedToken");
+        private readonly By _responseTextBox = By.Id("response");
 
         public DecryptionPage(IWebDriver webDriver)
             : base(webDriver, Title)
