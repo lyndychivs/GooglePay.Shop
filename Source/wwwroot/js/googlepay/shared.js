@@ -6,16 +6,16 @@
 var tokenizationSpecificationGateway = {
     type: 'PAYMENT_GATEWAY',
     parameters: {
-        'gateway': getElementValue('tokenization-specification-parameters-gateway'),
-        'gatewayMerchantId': getElementValue('tokenization-specification-parameters-gateway-merchant-id')
+        'gateway': getElementValue('tokenizationSpecificationParametersGateway'),
+        'gatewayMerchantId': getElementValue('tokenizationSpecificationParametersGatewayMerchantId')
     }
 };
 
 var tokenizationSpecificationDirect = {
     type: 'DIRECT',
     parameters: {
-        protocolVersion: getElementValue('tokenization-specification-parameters-protocol-version'),
-        publicKey: getElementValue('tokenization-specification-parameters-public-key')
+        protocolVersion: getElementValue('tokenizationSpecificationParametersProtocolVersion'),
+        publicKey: getElementValue('tokenizationSpecificationParametersPublicKey')
     }
 };
 
@@ -59,7 +59,7 @@ function getGoogleIsReadyToPayRequest() {
 }
 
 function getAllowedPaymentMethods() {
-    var tokenType = getElementValue('tokenization-specification-type');
+    var tokenType = getElementValue('tokenizationSpecificationType');
     if (tokenType == 'DIRECT') {
         return cardPaymentMethodDirect;
     }
@@ -92,13 +92,13 @@ function getPaymentClientWithConfiguration() {
                 addGooglePayButton();
             }
             else {
-                updateElementInnerHtml('Failed to call addGooglePayButton() paymentsClient.isReadyToPay response was false. (Perhaps the getGoogleIsReadyToPayRequest() configuration is now invalid.)', 'response-log');
+                updateElementInnerHtml('Failed to call addGooglePayButton() paymentsClient.isReadyToPay response was false. (Perhaps the getGoogleIsReadyToPayRequest() configuration is now invalid.)', 'responseLog');
                 getAndClearGooglePayDiv();
             }
         })
         .catch(function (err) {
             console.error(err);
-            updateElementInnerHtml(err, 'response-log');
+            updateElementInnerHtml(err, 'responseLog');
             getAndClearGooglePayDiv();
         });
 }
@@ -108,12 +108,12 @@ function getGoogleTransactionInfo() {
         countryCode: 'US',
         currencyCode: "USD",
         totalPriceStatus: "FINAL",
-        totalPrice: getElementValue('total-price')
+        totalPrice: getElementValue('totalPrice')
     };
 }
 
 function getGooglePayDiv() {
-    return document.getElementById('googlepay-button');
+    return document.getElementById('googlePayButton');
 }
 
 function getAndClearGooglePayDiv() {
@@ -123,30 +123,30 @@ function getAndClearGooglePayDiv() {
 }
 
 function copyTokenToClipboard() {
-    var copyText = document.getElementById('token-log');
+    var copyText = document.getElementById('responseToken');
     navigator.clipboard.writeText(copyText.innerText);
 }
 
 function copyBase64TokenToClipboard() {
-    var copyText = document.getElementById('token-b64-log');
+    var copyText = document.getElementById('responseTokenBase64Encoded');
     navigator.clipboard.writeText(copyText.innerText);
 }
 
 function renderAllowedTokenizationSpecificationParameters() {
-    var specificationType = getElementValue('tokenization-specification-type');
+    var specificationType = getElementValue('tokenizationSpecificationType');
 
     if (specificationType == 'DIRECT') {
-        setElementDisabledValue('tokenization-specification-parameters-gateway', true);
-        setElementDisabledValue('tokenization-specification-parameters-gateway-merchant-id', true);
-        setElementDisabledValue('tokenization-specification-parameters-protocol-version', false);
-        setElementDisabledValue('tokenization-specification-parameters-public-key', false);
+        setElementDisabledValue('tokenizationSpecificationParametersGateway', true);
+        setElementDisabledValue('tokenizationSpecificationParametersGatewayMerchantId', true);
+        setElementDisabledValue('tokenizationSpecificationParametersProtocolVersion', false);
+        setElementDisabledValue('tokenizationSpecificationParametersPublicKey', false);
         return;
     }
 
-    setElementDisabledValue('tokenization-specification-parameters-gateway', false);
-    setElementDisabledValue('tokenization-specification-parameters-gateway-merchant-id', false);
-    setElementDisabledValue('tokenization-specification-parameters-protocol-version', true);
-    setElementDisabledValue('tokenization-specification-parameters-public-key', true);
+    setElementDisabledValue('tokenizationSpecificationParametersGateway', false);
+    setElementDisabledValue('tokenizationSpecificationParametersGatewayMerchantId', false);
+    setElementDisabledValue('tokenizationSpecificationParametersProtocolVersion', true);
+    setElementDisabledValue('tokenizationSpecificationParametersPublicKey', true);
 }
 
 function setElementDisabledValue(id, value) {
@@ -158,21 +158,21 @@ function getElementValue(id) {
 }
 
 function updatePaymentGatewayGatewayValue() {
-    var value = getElementValue('tokenization-specification-parameters-gateway');
+    var value = getElementValue('tokenizationSpecificationParametersGateway');
     tokenizationSpecificationGateway.parameters.gateway = value;
 }
 
 function updatePaymentGatewayMerchantIdValue() {
-    var value = getElementValue('tokenization-specification-parameters-gateway-merchant-id');
+    var value = getElementValue('tokenizationSpecificationParametersGatewayMerchantId');
     tokenizationSpecificationGateway.parameters.gatewayMerchantId = value;
 }
 
 function updateDirectParametersProtocolVersionValue() {
-    var value = getElementValue('tokenization-specification-parameters-protocol-version');
+    var value = getElementValue('tokenizationSpecificationParametersProtocolVersion');
     tokenizationSpecificationDirect.parameters.protocolVersion = value;
 }
 
 function updateDirectParametersPublicKeyValue() {
-    var value = getElementValue('tokenization-specification-parameters-public-key');
+    var value = getElementValue('tokenizationSpecificationParametersPublicKey');
     tokenizationSpecificationDirect.parameters.publicKey = value;
 }

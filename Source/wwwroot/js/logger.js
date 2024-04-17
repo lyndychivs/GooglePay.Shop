@@ -10,16 +10,16 @@ function updateElementInnerHtmlWithJson(jsonAsObject, id) {
 }
 
 function clearLogs() {
-    var requestDiv = document.getElementById('request-log');
+    var requestDiv = document.getElementById('requestLog');
     requestDiv.innerHTML = '';
 
-    var responseDiv = document.getElementById('response-log');
+    var responseDiv = document.getElementById('responseLog');
     responseDiv.innerHTML = '';
 
-    var responseTokenDiv = document.getElementById('token-log');
+    var responseTokenDiv = document.getElementById('responseToken');
     responseTokenDiv.innerHTML = '';
 
-    var responseTokenB64Div = document.getElementById('token-b64-log');
+    var responseTokenB64Div = document.getElementById('responseTokenBase64Encoded');
     responseTokenB64Div.innerHTML = '';
 
     console.clear();

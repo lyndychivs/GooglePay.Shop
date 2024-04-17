@@ -14,16 +14,27 @@
     using Wallet.Models.SwaggerExamples;
 
     [ApiController]
-    public class GooglePayDecryptionController : ControllerBase
+    public class GooglePayDecryptController : ControllerBase
     {
-        private readonly GoogleKeyProvider _googleKeyProvider;
+        private readonly ISignatureKeyProvider _signatureKeyProvider;
 
         private readonly PaymentMethodTokenRecipient _paymentMethodTokenRecipient;
 
-        public GooglePayDecryptionController()
+        public GooglePayDecryptController()
+            : this(new GoogleKeyProvider(true), "merchant:12345678901234567890")
         {
-            _googleKeyProvider = new GoogleKeyProvider(true);
-            _paymentMethodTokenRecipient = new PaymentMethodTokenRecipient("merchant:12345678901234567890", _googleKeyProvider);
+        }
+
+        public GooglePayDecryptController(ISignatureKeyProvider signatureKeyProvider, string recipientId)
+        {
+            _signatureKeyProvider = signatureKeyProvider ?? throw new ArgumentNullException(nameof(signatureKeyProvider));
+
+            if (string.IsNullOrWhiteSpace(recipientId))
+            {
+                throw new ArgumentNullException(nameof(recipientId));
+            }
+
+            _paymentMethodTokenRecipient = new PaymentMethodTokenRecipient(recipientId, _signatureKeyProvider);
         }
 
         /// <summary>

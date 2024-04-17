@@ -3,8 +3,8 @@
 }
 
 function submitForDecryption() {
-    var privateKey = getElementValue('private-key');
-    var encryptedToken = getElementValue('encrypted-token');
+    var privateKey = getElementValue('privateKey');
+    var encryptedToken = getElementValue('encryptedToken');
 
     var googlePayDecryptionRequest = "{ \"PrivateKey\": \"" + privateKey + "\", \"EncryptedToken\": \"" + encryptedToken + "\" }";
 

@@ -7,14 +7,14 @@
     <br/>
 </div>
 <script src="~/js/logger.js"></script>
-<table id="configuration-table" class="fl-table">
+<table id="configurationTable" class="fl-table">
     <tr>
         <th>Configuration</th>
         <th>Value</th>
     </tr>
     <tr>
         <td>API Version:</td>
-        <td>v2.0</td>
+        <td id="apiVersion">v2.0</td>
     </tr>
     <tr>
         <td><a href="https://developers.google.com/pay/api/web/reference/request-objects#CardParameters" target="_blank">Allowed Authentication Methods:</a></td>
@@ -29,7 +29,7 @@
     <tr>
         <td><a href="https://developers.google.com/pay/api/web/reference/request-objects#PaymentMethodTokenizationSpecification" target="_blank">Tokenization Specification Type:</a></td>
         <td>
-            <select id="tokenization-specification-type" class="user-input-box" onchange="renderAllowedTokenizationSpecificationParameters()">
+            <select id="tokenizationSpecificationType" class="user-input-box" onchange="renderAllowedTokenizationSpecificationParameters()">
                 <option value="DIRECT">DIRECT</option>
                 <option value="PAYMENT_GATEWAY" selected>PAYMENT_GATEWAY</option>
             </select>
@@ -37,16 +37,16 @@
     </tr>
     <tr>
         <td><a href="https://developers.google.com/pay/api/web/reference/request-objects#gateway" target="_blank">Tokenization Specification Gateway:</a></td>
-        <td><input type="text" id="tokenization-specification-parameters-gateway" value="example" class="user-input-box" onchange="updatePaymentGatewayGatewayValue()"></td>
+        <td><input type="text" id="tokenizationSpecificationParametersGateway" value="example" class="user-input-box" onchange="updatePaymentGatewayGatewayValue()"></td>
     </tr>
     <tr>
         <td><a href="https://developers.google.com/pay/api/web/reference/request-objects#gateway" target="_blank">Tokenization Specification Gateway Merchant ID:</a></td>
-        <td><input type="text" id="tokenization-specification-parameters-gateway-merchant-id" value="exampleGatewayMerchantId" class="user-input-box" onchange="updatePaymentGatewayMerchantIdValue()"></td>
+        <td><input type="text" id="tokenizationSpecificationParametersGatewayMerchantId" value="exampleGatewayMerchantId" class="user-input-box" onchange="updatePaymentGatewayMerchantIdValue()"></td>
     </tr>
     <tr>
         <td><a href="https://developers.google.com/pay/api/web/reference/request-objects#direct" target="_blank">Tokenization Specification Protocol Version:</a></td>
         <td>
-            <select id="tokenization-specification-parameters-protocol-version" class="user-input-box" onchange="updateDirectParametersProtocolVersionValue()">
+            <select id="tokenizationSpecificationParametersProtocolVersion" class="user-input-box" onchange="updateDirectParametersProtocolVersionValue()">
                 <option value="ECv1">ECv1</option>
                 <option value="ECv2" selected>ECv2</option>
             </select>
@@ -54,21 +54,21 @@
     </tr>
     <tr>
         <td><a href="https://developers.google.com/pay/api/web/reference/request-objects#direct" target="_blank">Tokenization Specification Public Key:</a> (<a target="_blank" href="https://lyndychivs.com/2023/10/29/generating-encryption-data-for-googlepay-direct-integration/">How do I generate this?</a>)</td>
-        <td><input type="text" id="tokenization-specification-parameters-public-key" value="BPWiZHZx1DQ81JDURjbwUDy7MCbDbzQVmCUqYaoYrqUnwARdKD8JBNmFDVbsHcF/dD23oUQDl7TOgdd/Oq9wQuw=" class="user-input-box" onchange="updateDirectParametersPublicKeyValue()"></td>
+        <td><input type="text" id="tokenizationSpecificationParametersPublicKey" value="BOdoXP+9Aq473SnGwg3JU1aiNpsd9vH2ognq4PtDtlLGa3Kj8TPf+jaQNPyDSkh3JUhiS0KyrrlWhAgNZKHYF2Y=" class="user-input-box" onchange="updateDirectParametersPublicKeyValue()"></td>
     </tr>
     <tr>
         <td>Currency Code:</td>
-        <td id="currency-code">USD</td>
+        <td id="currencyCode">USD</td>
     </tr>
     <tr>
         <td>Total Price:</td>
-        <td><input type="text" id="total-price" value="1.00" class="user-input-box"></td>
+        <td><input type="text" id="totalPrice" value="1.00" class="user-input-box"></td>
     </tr>
 </table>
 <br/>
 <div class="text-center">
-    <div id="googlepay-button"></div>
-    <label id="check-console">Check Console logs if unexpected behaviour.</label>
+    <div id="googlePayButton"></div>
+    <label id="checkConsole">Check Console logs if unexpected behaviour.</label>
 </div>
 <br/>
 <script src="~/js/GooglePay/shared.js" onload="renderAllowedTokenizationSpecificationParameters()"></script>
@@ -82,17 +82,17 @@
 <button type="button" onclick="clearLogs()">Clear Logs</button>
 <br/>
 <h3>Request:</h3>
-<pre><code id="request-log"></code></pre>
+<pre><code id="requestLog"></code></pre>
 <br/>
 <h3>Response:</h3>
-<pre><code id="response-log"></code></pre>
+<pre><code id="responseLog"></code></pre>
 <br/>
 <h3>Response Token:</h3>
-<pre><code id="token-log"></code></pre>
+<pre><code id="responseToken"></code></pre>
 <br/>
 <button type="button" onclick="copyTokenToClipboard()">Copy Token To Clipboard</button>
 <br/>
 <h3>Response Token Base64 Encoded:</h3>
-<pre><code id="token-b64-log"></code></pre>
+<pre><code id="responseTokenBase64Encoded"></code></pre>
 <br/>
 <button type="button" onclick="copyBase64TokenToClipboard()">Copy Base64 Token To Clipboard</button>
