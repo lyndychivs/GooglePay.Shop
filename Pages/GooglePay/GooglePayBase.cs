@@ -4,10 +4,10 @@
 
     public abstract class GooglePayBase : PageBase
     {
-        private readonly By _navigationGooglePaySale = By.Id("google-pay-sale");
-        private readonly By _navigationGooglePayAuthorization = By.Id("google-pay-authorization");
-        private readonly By _navigationGooglePayDecryption = By.Id("google-pay-decryption");
-        private readonly By _navigationGooglePayDecryptionApiSwagger = By.Id("google-pay-decryption-swagger");
+        private readonly By _navigationGooglePaySale = By.Id("navigationGooglePaySale");
+        private readonly By _navigationGooglePayAuthorization = By.Id("navigationGooglePayAuthorization");
+        private readonly By _navigationGooglePayDecryption = By.Id("navigationGooglePayDecryption");
+        private readonly By _navigationGooglePayDecryptionSwagger = By.Id("navigationGooglePayDecryptionSwagger");
 
         protected GooglePayBase(IWebDriver webDriver, string expectedPageTitle)
             : base(webDriver, expectedPageTitle)
@@ -34,7 +34,7 @@
 
         protected DecryptionApiSwaggerPage ClickNavigationBarGooglePayDecryptionApiSwagger()
         {
-            Click(_navigationGooglePayDecryptionApiSwagger);
+            Click(_navigationGooglePayDecryptionSwagger);
             return new DecryptionApiSwaggerPage(WebDriver);
         }
     }

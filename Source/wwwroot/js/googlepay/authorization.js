@@ -49,7 +49,7 @@ function onGooglePaymentButtonClicked() {
     const paymentDataRequest = getGooglePaymentDataRequest();
     paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
     const paymentsClient = getGooglePaymentsClient();
-    updateElementInnerHtmlWithJson(paymentDataRequest, 'request-log');
+    updateElementInnerHtmlWithJson(paymentDataRequest, 'requestLog');
     paymentsClient.loadPaymentData(paymentDataRequest);
 }
 
@@ -57,9 +57,9 @@ function processPayment(paymentData) {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
             console.log(paymentData);
-            updateElementInnerHtmlWithJson(paymentData, 'response-log');
-            updateElementInnerHtml(paymentData.paymentMethodData.tokenizationData.token, 'token-log');
-            updateElementInnerHtml(btoa(paymentData.paymentMethodData.tokenizationData.token), 'token-b64-log');
+            updateElementInnerHtmlWithJson(paymentData, 'responseLog');
+            updateElementInnerHtml(paymentData.paymentMethodData.tokenizationData.token, 'responseToken');
+            updateElementInnerHtml(btoa(paymentData.paymentMethodData.tokenizationData.token), 'responseTokenBase64Encoded');
             resolve({});
         }, 500);
     });

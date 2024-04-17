@@ -47,13 +47,10 @@
             element.Click();
         }
 
-        protected void SetTextBoxValue(By by, string value)
+        protected string GetTextBoxValue(By by)
         {
-            Console.WriteLine($"{nameof(SetTextBoxValue)}: {by}, {value}");
-            var element = FindElement(by);
-
-            element.Clear();
-            element.SendKeys(value);
+            Console.WriteLine($"{nameof(GetTextBoxValue)}: {by}");
+            return FindElement(by).GetAttribute("value");
         }
 
         protected IWebElement GetDropdownSelectedOption(By by)
@@ -62,29 +59,22 @@
             return FindDropdownElement(by).SelectedOption;
         }
 
-        protected void SelectDropdownOptionByText(By by, string optionText)
-        {
-            Console.WriteLine($"{nameof(SelectDropdownOptionByText)}: {by}, {optionText}");
-            var selectElement = FindDropdownElement(by);
-            selectElement.SelectByText(optionText);
-        }
-
         protected IWebElement FindElement(By by)
         {
             Console.WriteLine($"{nameof(FindElement)}: {by}");
             return WaitUntilElementExists(by);
         }
 
-        private IWebElement WaitUntilElementExists(By by)
-        {
-            Console.WriteLine($"{nameof(WaitUntilElementExists)}: {by}");
-            return _webDriverWait.Until(ExpectedConditions.ElementExists(by));
-        }
-
         private SelectElement FindDropdownElement(By by)
         {
             Console.WriteLine($"{nameof(FindDropdownElement)}: {by}");
             return new SelectElement(FindElement(by));
+        }
+
+        private IWebElement WaitUntilElementExists(By by)
+        {
+            Console.WriteLine($"{nameof(WaitUntilElementExists)}: {by}");
+            return _webDriverWait.Until(ExpectedConditions.ElementExists(by));
         }
     }
 }

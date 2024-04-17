@@ -5,8 +5,6 @@
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
 
-    [Parallelizable(ParallelScope.All)]
-    [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
     public abstract class WebSetUp
     {
         private IWebDriver _webDriver;

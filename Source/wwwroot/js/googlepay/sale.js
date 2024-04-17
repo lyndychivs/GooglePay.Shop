@@ -22,20 +22,20 @@ function onGooglePaymentButtonClicked() {
     const paymentDataRequest = getGooglePaymentDataRequest();
     paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
     const paymentsClient = getGooglePaymentsClient();
-    updateElementInnerHtmlWithJson(paymentDataRequest, 'request-log');
+    updateElementInnerHtmlWithJson(paymentDataRequest, 'requestLog');
     paymentsClient.loadPaymentData(paymentDataRequest)
         .then(function (paymentData) {
             processPayment(paymentData);
         })
         .catch(function (err) {
             console.error(err);
-            updateElementInnerHtml(err, 'response-log');
+            updateElementInnerHtml(err, 'responseLog');
         });
 }
 
 function processPayment(paymentData) {
     console.log(paymentData);
-    updateElementInnerHtmlWithJson(paymentData, 'response-log');
-    updateElementInnerHtml(paymentData.paymentMethodData.tokenizationData.token, 'token-log');
-    updateElementInnerHtml(btoa(paymentData.paymentMethodData.tokenizationData.token), 'token-b64-log');
+    updateElementInnerHtmlWithJson(paymentData, 'responseLog');
+    updateElementInnerHtml(paymentData.paymentMethodData.tokenizationData.token, 'responseToken');
+    updateElementInnerHtml(btoa(paymentData.paymentMethodData.tokenizationData.token), 'responseTokenBase64Encoded');
 }
