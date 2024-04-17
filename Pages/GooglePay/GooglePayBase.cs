@@ -14,25 +14,25 @@
         {
         }
 
-        protected SalePage ClickNavigationBarGooglePaySale()
+        public SalePage ClickNavigationBarGooglePaySale()
         {
             Click(_navigationGooglePaySale);
             return new SalePage(WebDriver);
         }
 
-        protected AuthorizationPage ClickNavigationBarGooglePayAuthorization()
+        public AuthorizationPage ClickNavigationBarGooglePayAuthorization()
         {
             Click(_navigationGooglePayAuthorization);
             return new AuthorizationPage(WebDriver);
         }
 
-        protected DecryptionPage ClickNavigationBarGooglePayDecryption()
+        public DecryptionPage ClickNavigationBarGooglePayDecryption()
         {
             Click(_navigationGooglePayDecryption);
             return new DecryptionPage(WebDriver);
         }
 
-        protected DecryptionApiSwaggerPage ClickNavigationBarGooglePayDecryptionApiSwagger()
+        public DecryptionApiSwaggerPage ClickNavigationBarGooglePayDecryptionApiSwagger()
         {
             Click(_navigationGooglePayDecryptionSwagger);
             return new DecryptionApiSwaggerPage(WebDriver);
