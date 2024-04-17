@@ -4,6 +4,8 @@
 
     public abstract class GooglePayBase : PageBase
     {
+        protected const string Endpoint = "https://wallet.lyndychivs.com/GooglePay/";
+
         private readonly By _navigationGooglePaySale = By.Id("navigationGooglePaySale");
         private readonly By _navigationGooglePayAuthorization = By.Id("navigationGooglePayAuthorization");
         private readonly By _navigationGooglePayDecryption = By.Id("navigationGooglePayDecryption");

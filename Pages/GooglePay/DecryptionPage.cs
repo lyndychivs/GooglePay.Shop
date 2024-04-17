@@ -5,7 +5,7 @@
     public class DecryptionPage : GooglePayBase
     {
         public static readonly string Title = "Wallet | GooglePay Decryption";
-        public static readonly string Url = "https://wallet.lyndychivs.com/GooglePay/Decryption";
+        public static readonly string Url = $"{Endpoint}Decryption";
 
         private By _privateKeyTextBox = By.Id("privateKey");
         private By _encryptedTokenTextBox = By.Id("encryptedToken");

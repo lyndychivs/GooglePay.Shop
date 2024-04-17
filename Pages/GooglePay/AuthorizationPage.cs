@@ -5,7 +5,7 @@
     public class AuthorizationPage : GooglePayBase
     {
         public static readonly string Title = "Wallet | GooglePay Authorization";
-        public static readonly string Url = "https://wallet.lyndychivs.com/GooglePay/Authorization";
+        public static readonly string Url = $"{Endpoint}Authorization";
 
         private readonly By _apiVersionLabel = By.Id("apiVersion");
         private readonly By _allowedAuthenticationMethodsDropdown = By.Id("allowedAuthMethods");

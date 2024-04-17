@@ -5,7 +5,7 @@
     public class SalePage : GooglePayBase
     {
         public static readonly string Title = "Wallet | GooglePay Sale";
-        public static readonly string Url = "https://wallet.lyndychivs.com/GooglePay/Sale";
+        public static readonly string Url = $"{Endpoint}Sale";
 
         private readonly By _apiVersionLabel = By.Id("apiVersion");
         private readonly By _allowedAuthenticationMethodsDropdown = By.Id("allowedAuthMethods");
