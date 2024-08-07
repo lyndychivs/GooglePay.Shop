@@ -6,6 +6,7 @@
 
     using Microsoft.AspNetCore.Http.HttpResults;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.DependencyInjection;
 
     using Swashbuckle.AspNetCore.Annotations;
     using Swashbuckle.AspNetCore.Filters;
@@ -20,6 +21,7 @@
 
         private readonly PaymentMethodTokenRecipient _paymentMethodTokenRecipient;
 
+        [ActivatorUtilitiesConstructor]
         public GooglePayDecryptController()
             : this(new GoogleKeyProvider(true), "merchant:12345678901234567890")
         {

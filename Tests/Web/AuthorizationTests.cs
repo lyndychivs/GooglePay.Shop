@@ -7,7 +7,7 @@
     public class AuthorizationTests : WebSetUp
     {
         [Test]
-        public void ValidatePageHasRenderedSuccessfully()
+        public void Authorization_Page_Can_Be_Rendered_Successfully()
         {
             WebDriver.Navigate().GoToUrl(AuthorizationPage.Url);
             var authorizationPage = new AuthorizationPage(WebDriver);
@@ -21,7 +21,7 @@
                 Assert.That(authorizationPage.TokenizationSpecificationGatewayMerchantId, Is.EqualTo("exampleGatewayMerchantId"));
                 Assert.That(authorizationPage.TokenizationSpecificationProtocolVersion, Is.EqualTo("ECv2"));
                 Assert.That(authorizationPage.TokenizationSpecificationProtocolVersionIsEnabled, Is.EqualTo(false));
-                Assert.That(authorizationPage.TokenizationSpecificationPublicKey, Is.EqualTo("BOdoXP+9Aq473SnGwg3JU1aiNpsd9vH2ognq4PtDtlLGa3Kj8TPf+jaQNPyDSkh3JUhiS0KyrrlWhAgNZKHYF2Y="));
+                Assert.That(authorizationPage.TokenizationSpecificationPublicKey, Is.EqualTo("BLX6MmeA6IYmmlg8W2bYpGIeQ32u+JxB3gOVDN+P4Abta3pOVnkgq9mgdavZqp6Ce0hsTWJWoCmde3tyiJsi8vs="));
                 Assert.That(authorizationPage.TokenizationSpecificationPublicKeyIsEnabled, Is.EqualTo(false));
                 Assert.That(authorizationPage.CurrencyCode, Is.EqualTo("USD"));
                 Assert.That(authorizationPage.TotalPrice, Is.EqualTo("1.00"));

@@ -41,7 +41,6 @@ namespace Wallet
             app.UseSwagger();
             app.UseSwaggerUI();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseExceptionHandler(new ExceptionHandlerOptions()
             {
                 AllowStatusCode404Response = false,

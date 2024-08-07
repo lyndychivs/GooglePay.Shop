@@ -7,7 +7,7 @@
     public class NavigationTests : WebSetUp
     {
         [Test]
-        public void ValidateNavigationBarIsWorking()
+        public void Navigation_Bar_Allows_User_To_Navigate_Between_Pages_Successfully()
         {
             WebDriver.Navigate().GoToUrl(SalePage.Url);
             var salePage = new SalePage(WebDriver);

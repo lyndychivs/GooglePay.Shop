@@ -8,7 +8,7 @@
     public class SaleTests : WebSetUp
     {
         [Test]
-        public void ValidatePageHasRenderedSuccessfully()
+        public void Sale_Page_Can_Be_Rendered_Successfully()
         {
             WebDriver.Navigate().GoToUrl(SalePage.Url);
             var salePage = new SalePage(WebDriver);
@@ -22,7 +22,7 @@
                 Assert.That(salePage.TokenizationSpecificationGatewayMerchantId, Is.EqualTo("exampleGatewayMerchantId"));
                 Assert.That(salePage.TokenizationSpecificationProtocolVersion, Is.EqualTo("ECv2"));
                 Assert.That(salePage.TokenizationSpecificationProtocolVersionIsEnabled, Is.EqualTo(false));
-                Assert.That(salePage.TokenizationSpecificationPublicKey, Is.EqualTo("BOdoXP+9Aq473SnGwg3JU1aiNpsd9vH2ognq4PtDtlLGa3Kj8TPf+jaQNPyDSkh3JUhiS0KyrrlWhAgNZKHYF2Y="));
+                Assert.That(salePage.TokenizationSpecificationPublicKey, Is.EqualTo("BLX6MmeA6IYmmlg8W2bYpGIeQ32u+JxB3gOVDN+P4Abta3pOVnkgq9mgdavZqp6Ce0hsTWJWoCmde3tyiJsi8vs="));
                 Assert.That(salePage.TokenizationSpecificationPublicKeyIsEnabled, Is.EqualTo(false));
                 Assert.That(salePage.CurrencyCode, Is.EqualTo("USD"));
                 Assert.That(salePage.TotalPrice, Is.EqualTo("1.00"));
