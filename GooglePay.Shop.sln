@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wallet", "Source\Wallet.csproj", "{7860E689-D588-43B0-B5EB-0BC8BF8D46AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooglePay.Shop", "Source\GooglePay.Shop.csproj", "{7860E689-D588-43B0-B5EB-0BC8BF8D46AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wallet.Tests", "Tests\Wallet.Tests.csproj", "{23D56D9B-E4CE-46B5-933F-925C77EFC77E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooglePay.Shop.Tests", "Tests\GooglePay.Shop.Tests.csproj", "{23D56D9B-E4CE-46B5-933F-925C77EFC77E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Pages", "Pages\Wallet.Pages.csproj", "{60CAD94A-CD91-4B03-B612-470A7BC0DCE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooglePay.Shop.Pages", "Pages\GooglePay.Shop.Pages.csproj", "{60CAD94A-CD91-4B03-B612-470A7BC0DCE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-namespace Wallet.Models
+namespace GooglePay.Shop.Models
 {
     public class ErrorViewModel
     {

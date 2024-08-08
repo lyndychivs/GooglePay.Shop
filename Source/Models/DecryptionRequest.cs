@@ -1,8 +1,8 @@
-﻿namespace Wallet.Models
+﻿namespace GooglePay.Shop.Models
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class GooglePayDecryptionRequest
+    public class DecryptionRequest
     {
         /// <summary>
         /// Gets or sets the GooglePay Private Key used for Decryption.

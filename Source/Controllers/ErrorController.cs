@@ -1,10 +1,10 @@
-﻿namespace Wallet.Controllers
+﻿namespace GooglePay.Shop.Controllers
 {
     using System.Diagnostics;
 
-    using Microsoft.AspNetCore.Mvc;
+    using GooglePay.Shop.Models;
 
-    using Wallet.Models;
+    using Microsoft.AspNetCore.Mvc;
 
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ErrorController : Controller

@@ -1,4 +1,4 @@
-﻿namespace Wallet.Controllers
+﻿namespace GooglePay.Shop.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
 
@@ -6,19 +6,19 @@
     public class GooglePayController : Controller
     {
         [Route("")]
-        [Route("GooglePay/Sale")]
+        [Route("Sale")]
         public IActionResult Sale()
         {
             return View();
         }
 
-        [Route("GooglePay/Authorization")]
+        [Route("Authorization")]
         public IActionResult Authorization()
         {
             return View();
         }
 
-        [Route("GooglePay/Decryption")]
+        [Route("Decryption")]
         public IActionResult Decryption()
         {
             return View();

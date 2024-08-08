@@ -1,8 +1,8 @@
-﻿namespace Wallet.Tests.Web
+﻿namespace GooglePay.Shop.Tests.Web
 {
-    using NUnit.Framework;
+    using GooglePay.Shop.Pages;
 
-    using Wallet.Pages.GooglePay;
+    using NUnit.Framework;
 
     [TestFixture]
     public class SaleTests : WebSetUp

@@ -1,11 +1,11 @@
-﻿namespace Wallet.Pages.GooglePay
+﻿namespace GooglePay.Shop.Pages
 {
     using OpenQA.Selenium;
 
-    public class SalePage : GooglePayBase
+    public class AuthorizationPage : GooglePayBase
     {
-        public static readonly string Title = "Wallet | GooglePay Sale";
-        public static readonly string Url = $"{Endpoint}Sale";
+        public static readonly string Title = "GooglePay.Shop | Authorization";
+        public static readonly string Url = $"{Endpoint}Authorization";
 
         private readonly By _apiVersionLabel = By.Id("apiVersion");
         private readonly By _allowedAuthenticationMethodsDropdown = By.Id("allowedAuthMethods");
@@ -22,7 +22,7 @@
         private readonly By _responseTokenBlock = By.Id("responseToken");
         private readonly By _responseTokenBase64EncodedBlock = By.Id("responseTokenBase64Encoded");
 
-        public SalePage(IWebDriver webDriver)
+        public AuthorizationPage(IWebDriver webDriver)
             : base(webDriver, Title)
         {
         }

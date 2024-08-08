@@ -1,4 +1,4 @@
-namespace Wallet
+namespace GooglePay.Shop
 {
     using System;
     using System.IO;
@@ -30,7 +30,7 @@ namespace Wallet
                 c.ExampleFilters();
                 c.OperationFilter<AddResponseHeadersFilter>();
 
-                var filePath = Path.Combine(AppContext.BaseDirectory, $"{nameof(Wallet)}.xml");
+                var filePath = Path.Combine(AppContext.BaseDirectory, $"{nameof(GooglePay)}.{nameof(Shop)}.xml");
                 c.IncludeXmlComments(filePath);
             });
             builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());

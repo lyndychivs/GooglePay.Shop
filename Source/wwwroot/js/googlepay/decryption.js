@@ -14,7 +14,7 @@ function submitForDecryption() {
 function PostDecryptionRequestToApi(googlePayDecryptionRequest) {
     console.log('googlePayDecryptionRequest=' + googlePayDecryptionRequest);
 
-    fetch('https://localhost:433/GooglePay/Decrypt', {
+    fetch('https://localhost:433/Decrypt', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

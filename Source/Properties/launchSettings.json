@@ -26,7 +26,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Wallet": {
+    "GooglePay.Shop": {
       "commandName": "IIS",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production",

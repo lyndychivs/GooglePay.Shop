@@ -1,10 +1,10 @@
-﻿namespace Wallet.Pages.GooglePay
+﻿namespace GooglePay.Shop.Pages
 {
     using OpenQA.Selenium;
 
     public abstract class GooglePayBase : PageBase
     {
-        protected const string Endpoint = "https://wallet.lyndychivs.com/GooglePay/";
+        protected const string Endpoint = "https://googlepay.lyndychivs.com/";
 
         private readonly By _navigationGooglePaySale = By.Id("navigationGooglePaySale");
         private readonly By _navigationGooglePayAuthorization = By.Id("navigationGooglePayAuthorization");

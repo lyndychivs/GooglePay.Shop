@@ -1,33 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <Title>Wallet.Tests</Title>
-    <Authors>lyndychivs</Authors>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Title>GooglePay.Shop.Pages</Title>
     <Company>https://github.com/lyndychivs</Company>
-    <PackageProjectUrl>https://github.com/lyndychivs/Wallet</PackageProjectUrl>
+    <Authors>lyndychivs</Authors>
+    <PackageProjectUrl>https://github.com/lyndychivs/GooglePay.Shop</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/lyndychivs/Wallet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/lyndychivs/GooglePay.Shop</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
     <NeutralLanguage>en-GB</NeutralLanguage>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <EnableNETAnalyzers>True</EnableNETAnalyzers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <WarningLevel>9999</WarningLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <NoWarn>1701;1702;1573;1591;1712;1859</NoWarn>
+    <NoWarn>1701;1702;1573;1591;1712</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningLevel>9999</WarningLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <NoWarn>1701;1702;1573;1591;1712;1859</NoWarn>
+    <NoWarn>1701;1702;1573;1591;1712</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <None Update="..\README.md">
@@ -36,6 +38,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -44,23 +47,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-    <PackageReference Include="NUnit" Version="4.1.0" />
-    <PackageReference Include="NUnit.Analyzers" Version="4.2.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
-    <PackageReference Include="RestSharp" Version="111.4.1" />
+    <PackageReference Include="Selenium.Support" Version="4.23.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.23.0" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="127.0.6533.9900" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Source\Wallet.csproj" />
-    <ProjectReference Include="..\Pages\Wallet.Pages.csproj" />
   </ItemGroup>
 </Project>

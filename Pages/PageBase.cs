@@ -1,4 +1,4 @@
-﻿namespace Wallet.Pages
+﻿namespace GooglePay.Shop.Pages
 {
     using System;
 

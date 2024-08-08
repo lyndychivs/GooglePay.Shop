@@ -1,6 +1,6 @@
-﻿namespace Wallet.Models
+﻿namespace GooglePay.Shop.Models
 {
-    public class GooglePayDecryptionResponse
+    public class DecryptionResponse
     {
         /// <summary>
         /// Gets or sets the Decrypted Data returned by the GooglePay Decryption API.

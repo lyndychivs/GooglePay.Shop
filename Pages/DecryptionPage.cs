@@ -1,10 +1,10 @@
-﻿namespace Wallet.Pages.GooglePay
+﻿namespace GooglePay.Shop.Pages
 {
     using OpenQA.Selenium;
 
     public class DecryptionPage : GooglePayBase
     {
-        public static readonly string Title = "Wallet | GooglePay Decryption";
+        public static readonly string Title = "GooglePay.Shop | Decryption";
         public static readonly string Url = $"{Endpoint}Decryption";
 
         private readonly By _privateKeyTextBox = By.Id("privateKey");

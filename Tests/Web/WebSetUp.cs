@@ -1,4 +1,4 @@
-﻿namespace Wallet.Tests.Web
+﻿namespace GooglePay.Shop.Tests.Web
 {
     using NUnit.Framework;
 

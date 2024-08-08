@@ -1,4 +1,4 @@
-<RuleSet Name="Wallet StyleCop RuleSet" ToolsVersion="15.0">
+<RuleSet Name="GooglePay.Shop StyleCop RuleSet" ToolsVersion="15.0">
   <IncludeAll Action="Warning" />
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA1101" Action="None" />
