@@ -50,7 +50,7 @@
         protected string GetTextBoxValue(By by)
         {
             Console.WriteLine($"{nameof(GetTextBoxValue)}: {by}");
-            return FindElement(by).GetAttribute("value");
+            return FindElement(by).GetDomAttribute("value");
         }
 
         protected IWebElement GetDropdownSelectedOption(By by)
