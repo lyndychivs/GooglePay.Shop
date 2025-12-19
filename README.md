@@ -1,3 +1,6 @@
+> [!WARNING]
+> I'm no longer working on this project.
+
 # GooglePay.Shop
 An ASP.NET Core Web API for Testing transactions on GooglePay.
 
